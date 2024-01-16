@@ -130,7 +130,20 @@
 .item{
     height: 70vh;
     width: 37vh;
-    cursor: pointer;
+    /* cursor: pointer; */
+    padding: 1vh;
+}
+
+.item2{
+    height: 88vh;
+    width: 50vh;
+    /* cursor: pointer; */
+    padding: 1vh;
+}
+.item3{
+    height: 128vh;
+    width: 75vh;
+    /* cursor: pointer; */
     padding: 1vh;
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
@@ -11,6 +11,9 @@ const home = () => {
   const [activeview3, Setactiveview3] = useState(false);
   const [activeview4, Setactiveview4] = useState(true);
   const [hoveredItemIndex, setHoveredItemIndex] = useState(null);
+  const [width, setWidth] = useState(244);
+  const [length, setLength] = useState(366);
+  const [viewstyle, setviewstyle] = useState("item");
 
   const open = () => {
     Settoggle(!toggle);
@@ -49,6 +52,19 @@ const home = () => {
     },
   ];
 
+  // useEffect(()=>{
+  //   const change=()=>{
+  //     if(activeview2===true){
+  //       setWidth(450)
+  //       setLength(600)
+  //     }
+  //     else if(activeview3===true){
+  //       setWidth(350)
+  //       setLength(500)
+  //     }
+  //   }
+  // })
+
   
   const handleImageHover = (index) => {
     setHoveredItemIndex(index);
@@ -61,17 +77,25 @@ const home = () => {
     Setactiveview2(true)
     Setactiveview3(false)
     Setactiveview4(false)
-
+    setWidth(511)
+    setLength(766)
+    setviewstyle("item3")
   }
   const active2 =()=>{
     Setactiveview3(true)
     Setactiveview2(false)
     Setactiveview4(false)
+    setWidth(333)
+    setLength(499)
+    setviewstyle("item2")
   }
   const active3 =()=>{
     Setactiveview4(true)
     Setactiveview3(false)
     Setactiveview2(false)
+    setWidth(244)
+    setLength(366)
+    setviewstyle("item")
   }
 
   return (
@@ -125,11 +149,12 @@ const home = () => {
 
       <div className="store">
         {data.map((el, i) => (
-          <div className="item" key={i} eventKey={el}>
+          <div className={viewstyle} key={i} eventKey={el}>
             <Image
               src={hoveredItemIndex === i ? el.img2 : el.img}
-              width={250}
-              height={380}
+              width={width}
+              style={{cursor:"pointer"}}
+              height={length}
               onMouseEnter={() => handleImageHover(i)}
               onMouseLeave={handleImageLeave}
             />

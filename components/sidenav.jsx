@@ -4,6 +4,14 @@ import { useState } from "react";
 
 const sidenav = () => {
   const [listview, setlistview] = useState(false);
+  const [listview2, setlistview2] = useState(false);
+  const [listview3, setlistview3] = useState(false);
+  const [listview4, setlistview4] = useState(false);
+  const [listview5, setlistview5] = useState(false);
+  const [listview6, setlistview6] = useState(false);
+  const [listview7, setlistview7] = useState(false);
+  const [listview8, setlistview8] = useState(false);
+  const [listview9, setlistview9] = useState(false);
   const collection = [
     {
       name: "ACCESSORIES",
@@ -454,11 +462,11 @@ const sidenav = () => {
         <div className="br"></div>
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview2(!listview2)}}>
+          <IoMdArrowDropdown className={listview2 ? "arr2" : ""} />
           <h5>Size</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview2 ? "collection dis" : "collection"}>
           {size.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -472,11 +480,11 @@ const sidenav = () => {
         <div className="br"></div>
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview3(!listview3)}}>
+          <IoMdArrowDropdown className={listview3 ? "arr2" : ""} />
           <h5>Fit</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview3 ? "collection dis" : "collection"}>
           {size.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -490,11 +498,11 @@ const sidenav = () => {
         <div className="br"></div>
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview4(!listview4)}}>
+          <IoMdArrowDropdown className={listview4 ? "arr2" : ""} />
           <h5>Pattern</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview4 ? "collection dis" : "collection"}>
           {pattern.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -509,11 +517,11 @@ const sidenav = () => {
 
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview5(!listview5)}}>
+          <IoMdArrowDropdown className={listview5 ? "arr2" : ""} />
           <h5>Colors</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview5 ? "collection dis" : "collection"}>
           {color.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -528,11 +536,11 @@ const sidenav = () => {
 
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview6(!listview6)}}>
+          <IoMdArrowDropdown className={listview6 ? "arr2" : ""} />
           <h5>Price(Rs.)</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview6 ? "collection dis" : "collection"}>
           {price.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -547,11 +555,11 @@ const sidenav = () => {
 
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview7(!listview7)}}>
+          <IoMdArrowDropdown className={listview7 ? "arr2" : ""} />
           <h5>Occasion</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview7 ? "collection dis" : "collection"}>
           {occasion.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -566,11 +574,11 @@ const sidenav = () => {
 
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview8(!listview8)}}>
+          <IoMdArrowDropdown className={listview8 ? "arr2" : ""} />
           <h5>Sleeves</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview8 ? "collection dis" : "collection"}>
           {sleeves.map((el, i) => (
             <div className="list">
               <div className="check">
@@ -585,11 +593,11 @@ const sidenav = () => {
 
 
 
-        <div className="head" onClick={toggle}>
-          <IoMdArrowDropdown className={listview ? "arr2" : ""} />
+        <div className="head" onClick={()=>{setlistview9(!listview9)}}>
+          <IoMdArrowDropdown className={listview9 ? "arr2" : ""} />
           <h5>Neck/Collar</h5>
         </div>
-        <div className={listview ? "collection dis" : "collection"}>
+        <div className={listview9 ? "collection dis" : "collection"}>
           {neck.map((el, i) => (
             <div className="list">
               <div className="check">
