@@ -5,8 +5,22 @@ import { FiMinus } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
+import Footer from "../components/footer"
 
 const detail = () => {
+    const [active1, setactive1] = useState(true)
+    const [active2, setactive2] = useState(false)
+    const [active3, setactive3] = useState(false)
+    const items = [
+        {
+            name:'Colossal Checks Cream Shirt',
+            img:'https://cdn.shopify.com/s/files/1/0420/7073/7058/files/4MSS2625-01-M36.jpg?v=1705060547&width=600',
+        },
+        {
+            name: "Whiffy Blue Shirt",
+            img: "https://cdn.shopify.com/s/files/1/0420/7073/7058/files/4MSS2496-01-M14.jpg?v=1704966730&width=800"
+        }
+    ]
   const [qty, setqty] = useState(1);
   const [active, setactive] = useState(false);
   const [active_offer, setactive_offer] = useState(false);
@@ -27,6 +41,7 @@ const detail = () => {
     },
   ];
   return (
+    <>
     <div className="detail-main">
       <div className="div-photo">
         <div className="more-img">
@@ -254,6 +269,68 @@ const detail = () => {
         </div>
       </div>
     </div>
+    <div className="recent-div">
+        <div className="br3"></div>
+        <p className="p-head">RECENTLY VIEWED</p>
+        <div className="detail-items">
+            {items.map((el,i)=>(
+                <div key={i} style={{cursor:'pointer'}}>
+                    <Image src={el.img} width={250} height={380}/>
+                    <p style={{textAlign:'center'}}>{el.name}</p>
+                </div>
+            ))}
+        </div>
+        <div className="manu-detail">
+            <div className="tab">
+                <div className={active1?'tab1 bg_change':'tab1'} onClick={()=>{
+                setactive1(true);
+                setactive2(false);
+                setactive3(false);
+            }}>
+                    <p>Manufacturing Details</p>
+                </div>
+                <div className={active2?'tab1 bg_change':'tab1'} onClick={()=>{
+                setactive1(false);
+                setactive2(true);
+                setactive3(false);
+            }}>
+                    <p>Returns / Exchange Policy</p>
+                </div>
+                <div className={active3?'tab1 bg_change':'tab1'} onClick={()=>{
+                setactive1(false);
+                setactive2(false);
+                setactive3(true);
+            }}>
+                    <p>Country of Origin</p>
+                </div>
+            </div>
+            <div className={active1? 'tab2':'tab2 dis'}>
+                <div className="subtab">
+                    <p style={{fontWeight:'600'}}>Manufactured By:</p>
+                    <p>Aroma De France</p>
+                </div>
+                <div className="subtab">
+                    <p style={{fontWeight:'600'}}>Marketed By:</p>
+                    <p>Snitch Apparels Pvt. Ltd.</p>
+                    <p style={{marginBottom:'2vh'}}>No 1/1, St. Johns Church Road, Bharathinagar, Bengaluru - 560005</p>
+                </div>
+            </div>
+            <div className={active2? 'tab2':'tab2 dis'}>
+                <div className="subtab">
+                    <p>This product is not eligible for Returns or Exchanges.</p>
+                    <p>For more details on our Returns & Exchange Policies, please <span style={{fontWeight:'600'}}>click here․</span></p>
+                </div>
+            </div>
+            <div className={active3? 'tab2':'tab2 dis'}>
+                <div className="subtab">
+                    <p>India</p>
+                </div>
+            </div>
+        </div>
+        <div className="br3"></div>
+    </div>
+    <Footer/>
+    </>
   );
 };
 
