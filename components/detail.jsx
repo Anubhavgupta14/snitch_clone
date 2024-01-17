@@ -70,19 +70,7 @@ const detail = () => {
           <div className="br2"></div>
           <p className="detail-p2">QUANTITY</p>
           <div className="qty-detail">
-            <div
-              className="btn"
-              onClick={() => {
-                setqty(qty + 1);
-              }}
-              style={{ cursor: "pointer" }}
-            >
-              <FaPlus />
-            </div>
-            <div className="btn1">
-              <p>{qty}</p>
-            </div>
-            <div
+          <div
               className="btn"
               onClick={() => {
                 if (qty > 1) {
@@ -93,6 +81,19 @@ const detail = () => {
             >
               <FiMinus />
             </div>
+            <div className="btn1">
+              <p>{qty}</p>
+            </div>
+            <div
+              className="btn"
+              onClick={() => {
+                setqty(qty + 1);
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              <FaPlus />
+            </div>
+            
           </div>
           <p className="detail-p2">SIZE</p>
           <div
