@@ -48,13 +48,13 @@ const detail = () => {
                 <p className='detail-p'>Rs.1,199</p>
                 <div className='br2'></div>
                 <p className='detail-p2'>QUANTITY</p>
-                <div className='qty'>
+                <div className='qty-detail'>
                     <div className='btn' onClick={()=>{setqty(qty+1)}} style={{cursor:'pointer'}}><FaPlus /></div>
                     <div className='btn1'><p>{qty}</p></div>
                     <div className='btn' onClick={()=>{if(qty>1){setqty(qty-1)}}} style={{cursor:'pointer'}}><FiMinus /></div>
                 </div>
                 <p className='detail-p2'>SIZE</p>
-                <div className={active ? 'size sz':'size'} onClick={()=>{setactive(true)}} >100ml</div>
+                <div className={active ? 'detail-size sz':'detail-size'} onClick={()=>{setactive(true)}} >100ml</div>
                 <div className='desc matter'>
                     <p style={{textAlign:'center', marginBlock:'2vh', cursor:'pointer'}} onClick={()=>{setactive_offer(!active_offer)}} className='detail-p2'>OFFERS FOR YOU <span><IoIosArrowDown className={active_offer?'detail-arrow arrow':'detail-arrow'}/></span></p>
                     <div className={active_offer?'matter':'matter dis'}>
