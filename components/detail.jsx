@@ -25,13 +25,17 @@ const detail = () => {
   const [active, setactive] = useState(false);
   const [active_offer, setactive_offer] = useState(false);
   const [active_desc, setactive_desc] = useState(false);
-  const qty_change = () => {};
+  const [active_box, setactive_box] = useState(null);
+  const [active_img, setactive_img] = useState("https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800")
+  const active_box_Change = (i) => {
+    setactive_box(i)
+  };
   const data = [
     {
-      img: "https://www.snitch.co.in/cdn/shop/files/NOTAGT-SHIRT163.jpg?v=1691775881&width=1800",
+      img: "https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800",
     },
     {
-      img: "https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800",
+      img: "https://www.snitch.co.in/cdn/shop/files/NOTAGT-SHIRT163.jpg?v=1691775881&width=1800",
     },
     {
       img: "https://www.snitch.co.in/cdn/shop/files/4MSS2199-07-M149.jpg?v=1691775881&width=1800",
@@ -46,8 +50,8 @@ const detail = () => {
       <div className="div-photo">
         <div className="more-img">
           {data.map((el, i) => (
-            <div className="imgs">
-              <Image src={el.img} width={87} height={130} style={{border:'3px solid black'}} />
+            <div className="imgs" onClick={()=>{setactive_img(el.img); active_box_Change(i)}}>
+              <Image src={el.img} width={87} height={130} className={active_box === i ? 'bd':''} />
             </div>
           ))}
         </div>
@@ -55,7 +59,7 @@ const detail = () => {
           <Image
             width={604}
             height={906}
-            src="https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800"
+            src={active_img}
           />
         </div>
       </div>

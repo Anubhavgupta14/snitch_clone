@@ -157,6 +157,12 @@
     font-weight: 600;
     cursor: pointer;
 }
+.bd{
+    border: 3px solid black;
+}
+.main-img:hover{
+    cursor: zoom-in;
+}
 .detail-btn2{
     width: 100%;
     height: 7vh;
