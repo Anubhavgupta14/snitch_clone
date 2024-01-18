@@ -6,6 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import Footer from "../components/footer";
+import Carousel from "./carousel";
 
 const detail = () => {
   const [active1, setactive1] = useState(true);
@@ -52,32 +53,11 @@ const detail = () => {
       <div className="detail-imp">
         <div className="detail-main">
           <div className="sticky-height">
-            <div className="sticky">
-              <div className="div-photo">
-                <div className="more-img">
-                  {data.map((el, i) => (
-                    <div
-                      className="imgs"
-                      onClick={() => {
-                        setactive_img(el.img);
-                        active_box_Change(i);
-                      }}
-                    >
-                      <Image
-                        src={el.img}
-                        width={87}
-                        height={130}
-                        className={active_box === i ? "bd" : ""}
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div className="main-img">
-                  <Image width={604} height={906} src={active_img} />
-                </div>
-              </div>
-            </div>
+            <Carousel images={data}/>
           </div>
+
+
+
           <div className="detail">
             <div className="heading">
               <h2 className="detail-head">MID LOGO ANCHOR GREY SWEATSHIRT</h2>
