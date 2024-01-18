@@ -56,8 +56,6 @@ const detail = () => {
             <Carousel images={data}/>
           </div>
 
-
-
           <div className="detail">
             <div className="heading">
               <h2 className="detail-head">MID LOGO ANCHOR GREY SWEATSHIRT</h2>

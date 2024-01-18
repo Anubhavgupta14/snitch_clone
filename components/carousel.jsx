@@ -9,7 +9,7 @@ const carousel = ({images}) => {
         infiniteLoop={true}
         showIndicators={false}
         showStatus={false}
-        thumbWidth={60}
+        thumbWidth={80}
         className="productCarousel"
       >
         {images?.map((img,i) => (

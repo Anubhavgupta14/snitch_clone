@@ -50,3 +50,19 @@
 .sub{
     cursor: pointer;
 }
+
+@media screen and (max-width:768px){
+    .f1{
+        padding: 2vh;
+        height: 12vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-detail{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
