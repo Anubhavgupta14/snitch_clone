@@ -124,14 +124,12 @@
     margin-top: 10vh;
     display: flex;
     flex-wrap: wrap;
+    gap: 4vh;
     width: 100%;
 }
 
 .item{
     height: 70vh;
-    width: 37vh;
-    /* cursor: pointer; */
-    padding: 1vh;
 }
 
 .item2{
