@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import ReactImageMagnify from "react-image-magnify";
+
 
 const carousel = ({ images }) => {
   const [active_img, Setactive_img] = useState(null);

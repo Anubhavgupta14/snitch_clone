@@ -7,7 +7,7 @@ import { FaPlus } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import Footer from "../components/footer";
 import Carousel from "./carousel";
-import ReactImageMagnify from "react-image-magnify";
+import ReactImageMagnify from "@blacklab/react-image-magnify";
 
 const detail = () => {
   const [active1, setactive1] = useState(true);
@@ -78,21 +78,20 @@ const detail = () => {
                 <div className="main-img">
                   {/* <Image width={604} height={906} src={active_img} /> */}
                   <ReactImageMagnify
-                    {...{
-                      smallImage: {
-                        alt: "Wristwatch by Ted Baker London",
-                        isFluidWidth: true,
-                        src: active_img,
-                        width:100,
-                        height:100
-                      },
-                      largeImage: {
-                        src: active_img,
-                        width: 1200,
-                        height: 1800,
-                      },
-                      enlargedImagePosition:'over'
+                    imageProps={{
+                      alt: "Image",
+                      isFluidWidth: true,
+                      src: active_img,
                     }}
+                    magnifiedImageProps={{
+                      src: active_img,
+                      width: 1200,
+                      height: 1800,
+                    }}
+                    magnifyContainerProps={{
+                      scale:1
+                    }}
+                    
                   />
                 </div>
               </div>
