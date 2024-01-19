@@ -28,15 +28,12 @@
     /* height: 100vh; */
 }
 .more-img{
-    width: 12%;
-    height: 85vh;
     /* border: 1px solid; */
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 2vh;
 }
 .imgs{
-    width: 100%;
     cursor: pointer;
 }
 
@@ -210,6 +207,9 @@ tr:hover{
 }
 .bd{
     border: 3px solid black;
+}
+.bd1{
+    border: 3px solid transparent;
 }
 .main-img:hover{
     cursor: zoom-in;
@@ -474,5 +474,19 @@ tr:hover{
     .tab1{
         height: 9vh;
     }
+    .div-photo{
+        flex-direction: column-reverse;
+    }
+    .more-img{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .detail{
+        padding-inline: 0;
+    }
+    .qty-detail{
+        width: 20%;
+    }
+
     
 }

@@ -7,6 +7,7 @@ import { FaPlus } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import Footer from "../components/footer";
 import Carousel from "./carousel";
+import ReactImageMagnify from "react-image-magnify";
 
 const detail = () => {
   const [active1, setactive1] = useState(true);
@@ -53,7 +54,49 @@ const detail = () => {
       <div className="detail-imp">
         <div className="detail-main">
           <div className="sticky-height">
-            <Carousel images={data}/>
+            {/* <Carousel images={data}/> */}
+            <div className="sticky">
+              <div className="div-photo">
+                <div className="more-img">
+                  {data.map((el, i) => (
+                    <div
+                      className="imgs"
+                      onClick={() => {
+                        setactive_img(el.img);
+                        active_box_Change(i);
+                      }}
+                    >
+                      <Image
+                        src={el.img}
+                        width={70}
+                        height={100}
+                        className={active_box === i ? "bd" : "bd1"}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="main-img">
+                  {/* <Image width={604} height={906} src={active_img} /> */}
+                  <ReactImageMagnify
+                    {...{
+                      smallImage: {
+                        alt: "Wristwatch by Ted Baker London",
+                        isFluidWidth: true,
+                        src: active_img,
+                        width:100,
+                        height:100
+                      },
+                      largeImage: {
+                        src: active_img,
+                        width: 1200,
+                        height: 1800,
+                      },
+                      enlargedImagePosition:'over'
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="detail">
@@ -337,54 +380,78 @@ const detail = () => {
                 <p>Add to Wishlist</p>
               </div>
               <div className="pin-div">
-                    <p className="input-p">Estimated Delivery Date & COD Checker</p>
-                    <div className="input-place">
-                      <input placeholder="Enter your pincode" className="input-field"></input>
-                      <button className="input-btn">CHECK</button>
-                    </div>
+                <p className="input-p">Estimated Delivery Date & COD Checker</p>
+                <div className="input-place">
+                  <input
+                    placeholder="Enter your pincode"
+                    className="input-field"
+                  ></input>
+                  <button className="input-btn">CHECK</button>
+                </div>
               </div>
               <div className="chart">
-                <p className="detail-p2" style={{textAlign:'center', fontSize:'18px'}}>Size Guide</p>
-                    <table style={{width:'100%', borderCollapse:'collapse'}}>
-                      <tbody>
-                        <tr>
-                          <th className="td3"></th>
-                          <th className="td3" style={{fontWeight:'600'}}>CHEST</th>
-                          <th className="td3" style={{fontWeight:'600'}}>SLEEVE LENGTH</th>
-                          <th className="td3" style={{fontWeight:'600'}}>FRONT LENGTH</th>
-                        </tr>
-                        <tr>
-                          <td className="td3" style={{fontWeight:'600'}}>S</td>
-                          <td className="td3">39</td>
-                          <td className="td3">24</td>
-                          <td className="td3">26</td>
-                        </tr>
-                        <tr>
-                          <td className="td3" style={{fontWeight:'600'}}>M</td>
-                          <td className="td3">41</td>
-                          <td className="td3">25</td>
-                          <td className="td3">27</td>
-                        </tr>
-                        <tr>
-                          <td className="td3" style={{fontWeight:'600'}}>L</td>
-                          <td className="td3">43</td>
-                          <td className="td3">25.5</td>
-                          <td className="td3">28</td>
-                        </tr>
-                        <tr>
-                          <td className="td3" style={{fontWeight:'600'}}>XL</td>
-                          <td className="td3">45</td>
-                          <td className="td3">26</td>
-                          <td className="td3">29</td>
-                        </tr>
-                        <tr>
-                          <td className="td3" style={{fontWeight:'600'}}>XXL</td>
-                          <td className="td3">46</td>
-                          <td className="td3">26.5</td>
-                          <td className="td3">30</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <p
+                  className="detail-p2"
+                  style={{ textAlign: "center", fontSize: "18px" }}
+                >
+                  Size Guide
+                </p>
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <tbody>
+                    <tr>
+                      <th className="td3"></th>
+                      <th className="td3" style={{ fontWeight: "600" }}>
+                        CHEST
+                      </th>
+                      <th className="td3" style={{ fontWeight: "600" }}>
+                        SLEEVE LENGTH
+                      </th>
+                      <th className="td3" style={{ fontWeight: "600" }}>
+                        FRONT LENGTH
+                      </th>
+                    </tr>
+                    <tr>
+                      <td className="td3" style={{ fontWeight: "600" }}>
+                        S
+                      </td>
+                      <td className="td3">39</td>
+                      <td className="td3">24</td>
+                      <td className="td3">26</td>
+                    </tr>
+                    <tr>
+                      <td className="td3" style={{ fontWeight: "600" }}>
+                        M
+                      </td>
+                      <td className="td3">41</td>
+                      <td className="td3">25</td>
+                      <td className="td3">27</td>
+                    </tr>
+                    <tr>
+                      <td className="td3" style={{ fontWeight: "600" }}>
+                        L
+                      </td>
+                      <td className="td3">43</td>
+                      <td className="td3">25.5</td>
+                      <td className="td3">28</td>
+                    </tr>
+                    <tr>
+                      <td className="td3" style={{ fontWeight: "600" }}>
+                        XL
+                      </td>
+                      <td className="td3">45</td>
+                      <td className="td3">26</td>
+                      <td className="td3">29</td>
+                    </tr>
+                    <tr>
+                      <td className="td3" style={{ fontWeight: "600" }}>
+                        XXL
+                      </td>
+                      <td className="td3">46</td>
+                      <td className="td3">26.5</td>
+                      <td className="td3">30</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
