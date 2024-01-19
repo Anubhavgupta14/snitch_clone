@@ -32,9 +32,12 @@ const detail = () => {
   const [active_img, setactive_img] = useState(
     "https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800"
   );
+  const [currentIndex, SetcurrentIndex] = useState(0);
   const active_box_Change = (i) => {
     setactive_box(i);
+    SetcurrentIndex(i);
   };
+  
   const data = [
     {
       img: "https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800",
@@ -49,11 +52,14 @@ const detail = () => {
       img: "https://www.snitch.co.in/cdn/shop/files/4MSS2199-07-M138.jpg?v=1691775881&width=1800",
     },
   ];
+  const trans = {
+    transform: `translateX(calc(-${currentIndex} * ${100/data.length}%))`,
+  };
   return (
     <div>
       <div className="detail-imp">
         <div className="detail-main">
-          <div className="sticky-height">
+          <div className="sticky-height" style={{width:'100%'}}>
             {/* <Carousel images={data}/> */}
             <div className="sticky">
               <div className="div-photo">
@@ -77,18 +83,34 @@ const detail = () => {
                 </div>
                 <div className="main-img">
                   {/* <Image width={604} height={906} src={active_img} /> */}
-                  <ReactImageMagnify
-                    imageProps={{
-                      alt: "Image",
-                      isFluidWidth: true,
-                      src: active_img,
-                    }}
-                    magnifiedImageProps={{
-                      src: active_img,
-                      width: 1200,
-                      height: 1800,
-                    }}
-                  />
+                  <div className="middle" style={trans}>
+                    {data.map((el, i) => (
+                      <div key={i}>
+                        <ReactImageMagnify
+                          imageProps={{
+                            alt: "Image",
+                            isFluidWidth: true,
+                            src: el.img,
+                            
+                          }}
+                          magnifiedImageProps={{
+                            src: el.img,
+                            width: 1200,
+                            height: 1800,
+                          }}
+                          portalProps={{
+                            horizontalOffset: 10,
+                            id: 'portal-test-id'
+                          }}
+                          magnifyContainerProps={{
+                            height: 625,
+                            width: 800
+                          }}
+                          
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
