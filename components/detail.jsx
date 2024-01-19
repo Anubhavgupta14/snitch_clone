@@ -88,10 +88,6 @@ const detail = () => {
                       width: 1200,
                       height: 1800,
                     }}
-                    magnifyContainerProps={{
-                      scale:1
-                    }}
-                    
                   />
                 </div>
               </div>
