@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiMinus } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
@@ -58,6 +58,15 @@ const detail = () => {
   const trans = {
     transform: `translateX(calc(-${currentIndex} * ${100 / data.length}%))`,
   };
+  let menuRef = useRef();
+  useEffect(()=>{
+    let handler = (e)=>{
+      if(!menuRef.current.contains(e.target)){
+        setactive(false)
+      }
+    }
+    document.addEventListener("mousedown", handler)
+  })
   return (
     <div>
       <div className="detail-imp">
@@ -484,7 +493,7 @@ const detail = () => {
             </div>
           </div>
         </div>
-        <div className={active ? "cart trans2" : "cart"}>
+        <div className={active ? "cart trans2" : "cart"} ref={menuRef}>
           <div className="cart-head">
             <h2 className="detail-head">CART</h2>
             <RxCross2 style={{ fontSize: "18px", cursor: "pointer" }} onClick={()=>{setactive(false)}}/>
