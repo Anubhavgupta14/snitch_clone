@@ -4,10 +4,10 @@ import { FaInstagram } from "react-icons/fa";
 import { FaFacebook, FaYoutube, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 
-const footer = () => {
+const footer = ({active2}) => {
   const [active, setactive] = useState(false);
   return (
-    <div className="main-footer">
+    <div className={active2?'main-footer op':'main-footer'}>
       <div className="footer-detail">
         <div className="f1">
           <p style={{ fontSize: "18px", marginBottom: "2vh" }}>VISIT STORE</p>

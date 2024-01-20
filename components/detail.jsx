@@ -6,6 +6,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import Footer from "../components/footer";
+import { RxCross2 } from "react-icons/rx";
+import { IoIosArrowForward } from "react-icons/io";
 import Carousel from "./carousel";
 import ReactImageMagnify from "@blacklab/react-image-magnify";
 
@@ -37,7 +39,7 @@ const detail = () => {
     setactive_box(i);
     SetcurrentIndex(i);
   };
-  
+
   const data = [
     {
       img: "https://www.snitch.co.in/cdn/shop/files/CloseCall.jpg?v=1691679665&width=1800",
@@ -53,19 +55,20 @@ const detail = () => {
     },
   ];
   const trans = {
-    transform: `translateX(calc(-${currentIndex} * ${100/data.length}%))`,
+    transform: `translateX(calc(-${currentIndex} * ${100 / data.length}%))`,
   };
   return (
     <div>
       <div className="detail-imp">
-        <div className="detail-main">
-          <div className="sticky-height" style={{width:'100%'}}>
+        <div className={active?'detail-main op':'detail-main'}>
+          <div className="sticky-height" style={{ width: "100%" }}>
             {/* <Carousel images={data}/> */}
             <div className="sticky">
               <div className="div-photo">
                 <div className="more-img">
                   {data.map((el, i) => (
                     <div
+                      key={i}
                       className="imgs"
                       onClick={() => {
                         setactive_img(el.img);
@@ -73,6 +76,7 @@ const detail = () => {
                       }}
                     >
                       <Image
+                        alt="image"
                         src={el.img}
                         width={70}
                         height={100}
@@ -89,9 +93,7 @@ const detail = () => {
                         <ReactImageMagnify
                           imageProps={{
                             alt: "Image",
-                            isFluidWidth: true,
                             src: el.img,
-                            
                           }}
                           magnifiedImageProps={{
                             src: el.img,
@@ -100,13 +102,12 @@ const detail = () => {
                           }}
                           portalProps={{
                             horizontalOffset: 10,
-                            id: 'portal-test-id'
+                            id: "portal-test-id",
                           }}
                           magnifyContainerProps={{
                             height: 625,
-                            width: 800
+                            width: 800,
                           }}
-                          
                         />
                       </div>
                     ))}
@@ -221,6 +222,7 @@ const detail = () => {
                     rest later via{" "}
                     <span style={{ marginRight: "2vh", cursor: "pointer" }}>
                       <Image
+                        alt="image"
                         src="https://websdk-assets.s3.ap-south-1.amazonaws.com/shopify-messaging-app/snitchpay_logo.png"
                         width={137}
                         height={14}
@@ -228,6 +230,7 @@ const detail = () => {
                     </span>{" "}
                     <span style={{ cursor: "pointer" }}>
                       <Image
+                        alt="image"
                         src="https://websdk-assets.s3.ap-south-1.amazonaws.com/shopify-messaging-app/info-icon.png"
                         width={18}
                         height={18}
@@ -391,7 +394,14 @@ const detail = () => {
               </div>
 
               <button className="detail-btn">SELECT A SIZE</button>
-              <button className="detail-btn">ADD TO CART</button>
+              <button
+                className="detail-btn"
+                onClick={() => {
+                  setactive(true);
+                }}
+              >
+                ADD TO CART
+              </button>
               <div className="detail-btn2">
                 <CiHeart className="heart" />
                 <p>Add to Wishlist</p>
@@ -473,14 +483,102 @@ const detail = () => {
             </div>
           </div>
         </div>
+        <div className={active ? "cart trans2" : "cart"}>
+          <div className="cart-head">
+            <h2 className="detail-head">CART</h2>
+            <RxCross2 style={{ fontSize: "18px", cursor: "pointer" }} onClick={()=>{setactive(false)}}/>
+          </div>
+          <div className="cart-item">
+            <Image src={data[0].img} width={100} height={140} alt="image" />
+            <div>
+              <p className="cart-p-main">Mid Logo Anchor Grey Sweatshirt</p>
+              <p className="cart-p">
+                Color: <span style={{ fontFamily: "myFont" }}>Grey</span>
+              </p>
+              <p className="cart-p">
+                Size: <span style={{ fontFamily: "myFont" }}>XL</span>
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div className="qty-detail2">
+                  <div
+                    className="btn"
+                    onClick={() => {
+                      if (qty > 1) {
+                        setqty(qty - 1);
+                      }
+                    }}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <FiMinus />
+                  </div>
+                  <div className="btn1">
+                    <p>{qty}</p>
+                  </div>
+                  <div
+                    className="btn"
+                    onClick={() => {
+                      setqty(qty + 1);
+                    }}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <FaPlus />
+                  </div>
+                </div>
+                <p className="cart-p">Rs. 1,299</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="br2 mg"></div>
+          <div className="total">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginTop: "2vh",
+              }}
+            >
+              <p className="cart-p-total">SUBTOTAL</p>
+              <p className="cart-p">Rs. 6,495</p>
+            </div>
+            <p className="cart-p2">
+              Shipping, taxes, and discount codes calculated at checkout.
+            </p>
+            <div style={{display:'flex', justifyContent:'center', position:'relative'}}>
+              <select className="select">
+                <option disabled>
+                  Select option to use store snitch coins
+                </option>
+                <option>You can use Rs. 5 snitch coins out of Rs. 5</option>
+              </select>
+              <IoIosArrowDown className="cart-logo"/>
+            </div>
+            <div className="order-btn">
+                <p className="cart-p3-main">PLACE ORDER</p>
+                <p className="cart-p3">UPI / COD / PAY IN 3 / CRED / CARDS</p>
+            </div>
+            <div className="order-btn">
+                <p className="cart-p3-main">PROCEED TO CHECKOUT</p>
+                <p className="cart-p3">UPI / COD / SNAPMINT / <span><Image src='https://cdn.gokwik.co/v4/images/upi-cred.svg' width={80} height={20} alt="logo"/></span> / CARDS</p>
+                <IoIosArrowForward className="cart-logo"/>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="recent-div">
+      <div className={active?'recent-div op':'recent-div'}>
         <div className="br3"></div>
         <p className="p-head">RECENTLY VIEWED</p>
         <div className="detail-items">
           {items.map((el, i) => (
             <div key={i} style={{ cursor: "pointer" }}>
-              <Image src={el.img} width={250} height={380} />
+              <Image src={el.img} width={250} height={380} alt="image" />
               <p style={{ textAlign: "center" }}>{el.name}</p>
             </div>
           ))}
@@ -548,7 +646,7 @@ const detail = () => {
         </div>
         <div className="br3"></div>
       </div>
-      <Footer />
+      <Footer active2={active}/>
     </div>
   );
 };
