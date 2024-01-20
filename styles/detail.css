@@ -627,6 +627,9 @@ tr:hover{
     .cart{
         width: 94%;
     }
+    .cart-item{
+        gap: 4vh;
+    }
 
     
 }
