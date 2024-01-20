@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FiMinus } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
@@ -16,6 +16,7 @@ const detail = () => {
   const [active2, setactive2] = useState(false);
   const [active3, setactive3] = useState(false);
   const [color2, setcolor2] = useState(false);
+  
   const items = [
     {
       name: "Colossal Checks Cream Shirt",
